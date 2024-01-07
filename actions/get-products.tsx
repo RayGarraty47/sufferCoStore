@@ -8,7 +8,7 @@ const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 interface Query {
     categoryId?: string;
     colorId?: string;
-    sizeId?: boolean;
+    sizeId?: string;
     isFeatured?: boolean;
 }
 
