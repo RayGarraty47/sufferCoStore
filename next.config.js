@@ -1,11 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "tailwindui.com",
-      "res.cloudinary.com"
-    ]
-  }
-}
+    remotePatterns: [
+      {
+        hostname: "tailwindui.com",
+      },
+      {
+        hostname: "res.cloudinary.com",
+      },
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
