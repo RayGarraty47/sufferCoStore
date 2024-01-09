@@ -25,7 +25,7 @@ const useCart = create(
       toast.success("Item added to cart.");
     },
     removeItem: (id: string) => {
-      set({ items: [...get().items.filter((item) => item.id !=== id)] });
+      set({ items: [...get().items.filter((item) => item.id !== id)] });
       toast.success("item removed from the cart.")
     },
     removeAll: () => set({ items: [] }),
