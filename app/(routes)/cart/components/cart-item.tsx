@@ -1,5 +1,4 @@
-"use client"
-
+import React from "react";
 import Image from "next/image";
 import { toast } from "react-hot-toast";
 import { X } from "lucide-react";
@@ -9,21 +8,19 @@ import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 import { Product } from "@/types";
 
-
 interface CartItemProps {
   data: Product;
+  quantity: number;
 }
 
-const CartItem: React.FC<CartItemProps> = ({
-  data
-}) => {
+const CartItem: React.FC<CartItemProps> = ({ data, quantity }) => {
   const cart = useCart();
 
   const onRemove = () => {
     cart.removeItem(data.id);
   };
 
-  return ( 
+  return (
     <li className="flex py-6 border-b">
       <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
         <Image
@@ -40,7 +37,7 @@ const CartItem: React.FC<CartItemProps> = ({
         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
           <div className="flex justify-between">
             <p className=" text-lg font-semibold text-black">
-              {data.name}
+              {data.name} - {quantity}
             </p>
           </div>
 
@@ -53,6 +50,6 @@ const CartItem: React.FC<CartItemProps> = ({
       </div>
     </li>
   );
-}
- 
+};
+
 export default CartItem;
